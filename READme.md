@@ -1,4 +1,4 @@
-##SIMPLE ZK verifier --> Hello world 
+## SIMPLE ZK verifier --> Hello world 
 
 This is just tests code for generating verification and calldata and compare the hashed binaries to understand the similarities.
 
@@ -38,5 +38,29 @@ compare_binary.bash calldata.json calldata-app.json
 ```
 chmod +x compare_binary.bash 
 ```
+- Now we can use deployed verifier contract to verifiy our proofs.
+Just start local devnet by 
+```
+make start_dev
+```
+
+and then declare and deploy the verifier.
+
+```
+make declare_local_UltraStarknetHonkVerifier
+```
+
+```
+make deploy_local_UltraStarknetHonkVerifier
+```
+
+and then simply run 
+
+```
+make verify_proof CONTRACT_ADDRESS=$(Contract address from deployement)
+```
+
+if the proof is valid it will return public inputs of the circuit.
+
 
 one important part is both proof should be same inputs -> so in garaga app it should be x:1 y:2 

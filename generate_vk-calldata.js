@@ -27,7 +27,7 @@ async function generateVK() {
   const backend = new UltraHonkBackend(data.bytecode);
 
   console.log("Executing the Noir program to generate witness...");
-  const { witness } = await noir.execute({ x: 1, y: 2 });
+  const { witness } = await noir.execute({ x: 15, y: 14 });
 
   console.log("Generating the proof (proof is required to generate VK)...");
   const proof = await backend.generateProof(witness, { starknet: true });

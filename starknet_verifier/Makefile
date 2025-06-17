@@ -165,5 +165,5 @@ deploy_sepolia_UltraStarknetHonkVerifier: ## Deploy UltraStarknetHonkVerifier co
 	echo "Deployment saved to: deployments/sepolia/sepolia/UltraStarknetHonkVerifier.deployment.json"; \
 	echo "$$output"
 verify_proof:
-	jq -r '.[] | if (type == "string" and startswith("0x")) then tonumber else . end' ./../calldata.json | tr '\n' ' ' > calldata.txt
-	sncast --profile=devnet invoke --contract-address $(CONTRACT_ADDRESS) --function verify_ultra_starknet_honk_proof --calldata $$(cat calldata.txt)
+	jq -r '.[] | if (type == "string" and startswith("0x")) then tonumber else . end' ./../target/calldata.json | tr '\n' ' ' > calldata.txt
+	sncast --profile=devnet call --contract-address $(CONTRACT_ADDRESS) --function verify_ultra_starknet_honk_proof --calldata $$(cat calldata.txt)
