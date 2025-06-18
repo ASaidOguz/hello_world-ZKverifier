@@ -57,7 +57,7 @@ make deploy_local_UltraStarknetHonkVerifier
 and then simply run 
 
 ```
-make verify_proof CONTRACT_ADDRESS=$(Contract address from deployement)
+make verify_proof CONTRACT_ADDRESS=$(Contract address from deployment)
 ```
 
 if the proof is valid it will return public inputs of the circuit.
