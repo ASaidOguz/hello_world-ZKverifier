@@ -57,10 +57,17 @@ make deploy_local_UltraStarknetHonkVerifier
 and then simply run 
 
 ```
-make verify_proof CONTRACT_ADDRESS=$(Contract address from deployment)
+make verify_proof 
 ```
+You need starknet foundry installed in your pc to use sncast call command so use [starknet foundry](https://foundry-rs.github.io/starknet-foundry/getting-started/installation.html)
 
 if the proof is valid it will return public inputs of the circuit.
-
+Typicaly contract verifier will produce this value 
+```
+[0x0, 0x1, 0x2, 0x0]
+```
+- The proof verification was successful (indicated by the 0x0 for the Some variant of Option).
+- The function returned a Span containing one u256 value.
+- That u256 value is 2.
 
 one important part is both proof should be same inputs -> so in garaga app it should be x:1 y:2 
